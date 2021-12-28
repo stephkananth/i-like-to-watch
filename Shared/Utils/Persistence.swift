@@ -15,7 +15,6 @@ struct PersistenceController {
         let viewContext: NSManagedObjectContext = result.container.viewContext
         for _ in 0..<10 {
             let newItem: Item = Item(context: viewContext)
-            newItem.timestamp = Date()
         }
         do {
             try viewContext.save()

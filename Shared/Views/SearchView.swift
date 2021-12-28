@@ -9,7 +9,7 @@ import SwiftUI
 import CoreData
 
 struct SearchView: View {    
-    @ObservedObject private var viewModel: ViewModel = ViewModel()
+    @ObservedObject private var searchVM: SearchViewModel = SearchViewModel()
     @State private var searchField: String = ""
     
     var body: some View {
@@ -18,14 +18,14 @@ struct SearchView: View {
                 TextField("search", text: $searchField)
                     .padding(.leading)
                 Button {
-                    self.viewModel.search(searchText: self.searchField)
+                    self.searchVM.search(searchText: self.searchField)
                 } label: {
                     Label("", systemImage: "magnifyingglass")
                         .padding(.trailing)
                 }
             }
             .padding(.bottom)
-            List(viewModel.searchResults) { searchResult in
+            List(searchVM.searchResults) { searchResult in
                 NavigationLink(destination: SearchResultDetailView(searchResult)) {
                     SearchResultRow(searchResult)
                 }
