@@ -9,7 +9,7 @@ import SwiftUI
 
 struct SearchResultRow: View {
     private let searchResult: SearchResult
-    private static let width: CGFloat = UIScreen.main.bounds.width / 5
+    private static let width: CGFloat = Constants.width / 5
     
     var body: some View {
         HStack {

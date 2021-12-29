@@ -38,7 +38,7 @@ enum Platform: String, CaseIterable {
         }
     }
     
-    var icon: some View {
+    var image: some View {
         Text(abbreviation)
             .font(.title2)
             .foregroundColor(.white)

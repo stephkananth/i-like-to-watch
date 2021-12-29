@@ -15,6 +15,16 @@ enum Rating: String, CaseIterable {
     case four = "really liked it"
     case five = "it was amazing"
     
+    private var value: Int {
+        switch self {
+        case .one: return 1
+        case .two: return 2
+        case .three: return 3
+        case .four: return 4
+        case .five: return 5
+        }
+    }
+    
     var image: AnyView {
         switch self {
         case .one:

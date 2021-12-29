@@ -27,8 +27,8 @@ struct SearchResult: Codable {
         URL(string: poster)
     }
     
-    var getType: String {
-        type
+    var getType: MediaType? {
+        return MediaType(rawValue: type)
     }
     
     var getTypeIcon: some View {
@@ -43,7 +43,7 @@ struct SearchResult: Codable {
         case poster = "Poster"
     }
     
-    private enum MediaType: String {
+    enum MediaType: String {
         case movie
         case series
         case game
