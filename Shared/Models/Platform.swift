@@ -27,7 +27,7 @@ enum Platform: String, CaseIterable {
         }
     }
     
-    private var iconColor: Color {
+    private var imageColor: Color {
         switch self {
         case .netflix: return .red
         case .hulu: return .green
@@ -43,7 +43,7 @@ enum Platform: String, CaseIterable {
             .font(.title2)
             .foregroundColor(.white)
             .padding()
-            .background(iconColor)
+            .background(imageColor)
             .clipShape(Circle())
     }
 }

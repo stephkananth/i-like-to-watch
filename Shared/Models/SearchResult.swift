@@ -32,7 +32,7 @@ struct SearchResult: Codable {
     }
     
     var getTypeIcon: some View {
-        MediaType(rawValue: type)?.icon
+        getType?.icon
     }
 
     private enum CodingKeys: String, CodingKey {
@@ -41,31 +41,6 @@ struct SearchResult: Codable {
         case imdbID
         case type = "Type"
         case poster = "Poster"
-    }
-    
-    enum MediaType: String {
-        case movie
-        case series
-        case game
-        case episode
-        
-        private var abbreviation: String {
-            switch self {
-            case .movie: return "M"
-            case .series: return "TV"
-            case .game: return "G"
-            case .episode: return "EP"
-            }
-        }
-        
-        var icon: some View {
-            Text(abbreviation)
-                .font(.title2)
-                .foregroundColor(.white)
-                .padding()
-                .background(.gray)
-                .clipShape(Circle())
-        }
     }
 }
 
