@@ -25,9 +25,9 @@ struct SearchView: View {
                 }
             }
             .padding(.bottom)
-            List(searchVM.searchResults) { searchResult in
-                NavigationLink(destination: SearchResultDetailView(searchResult)) {
-                    SearchResultRow(searchResult)
+            List(searchVM.SearchResponses) { SearchResponse in
+                NavigationLink(destination: SearchResponseDetailView(SearchResponse)) {
+                    SearchResponseRow(SearchResponse)
                 }
             }
         }

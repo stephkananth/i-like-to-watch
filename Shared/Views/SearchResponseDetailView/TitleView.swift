@@ -8,22 +8,22 @@
 import SwiftUI
 
 struct TitleView: View {
-    private let searchResult: SearchResult
+    private let searchResponse: SearchResponse
     
     var body: some View {
         HStack(alignment: .center) {
             VStack(alignment: .leading) {
-                Text(searchResult.getTitle)
+                Text(searchResponse.getTitle)
                     .font(.headline)
-                Text(searchResult.getYearString)
+                Text(searchResponse.getYearString)
                     .font(.subheadline)
             }
             Spacer()
-            searchResult.getTypeIcon
+            searchResponse.getTypeIcon
         }
     }
     
-    init(searchResult: SearchResult) {
-        self.searchResult = searchResult
+    init(SearchResponse: SearchResponse) {
+        self.searchResponse = SearchResponse
     }
 }

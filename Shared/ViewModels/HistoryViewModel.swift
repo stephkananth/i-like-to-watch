@@ -9,6 +9,5 @@ import CoreData
 import Foundation
 
 class HistoryViewModel: ObservableObject {
-    @Published var items: [NSManagedObject] = []
-
+    @Published var items: [WatchItem] = []
 }

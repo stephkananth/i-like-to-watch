@@ -1,5 +1,5 @@
 //
-//  SearchResultRow.swift
+//  SearchResponseRow.swift
 //  ILikeToWatch
 //
 //  Created by Steph Ananth on 12/24/21.
@@ -7,35 +7,35 @@
 
 import SwiftUI
 
-struct SearchResultRow: View {
-    private let searchResult: SearchResult
+struct SearchResponseRow: View {
+    private let SearchResponse: SearchResponse
     private static let width: CGFloat = Constants.width / 5
     
     var body: some View {
         HStack {
             AsyncImage(
-                url: searchResult.getPosterURL,
+                url: SearchResponse.getPosterURL,
                 content: { image in
                     image.resizable()
                         .aspectRatio(contentMode: .fit)
-                        .frame(maxWidth: SearchResultRow.width, maxHeight: .greatestFiniteMagnitude)
+                        .frame(maxWidth: SearchResponseRow.width, maxHeight: .greatestFiniteMagnitude)
                 },
                 placeholder: {
                     ProgressView()
-                        .frame(width: SearchResultRow.width, height: SearchResultRow.width, alignment: .center)
+                        .frame(width: SearchResponseRow.width, height: SearchResponseRow.width, alignment: .center)
                 }
             )
             VStack(alignment: .leading) {
-                Text(searchResult.getTitle)
+                Text(SearchResponse.getTitle)
                     .font(.headline)
-                Text(searchResult.getYearString)
+                Text(SearchResponse.getYearString)
                     .font(.subheadline)
                     .lineLimit(1)
             }
         }
     }
     
-    init(_ searchResult: SearchResult) {
-        self.searchResult = searchResult
+    init(_ SearchResponse: SearchResponse) {
+        self.SearchResponse = SearchResponse
     }
 }

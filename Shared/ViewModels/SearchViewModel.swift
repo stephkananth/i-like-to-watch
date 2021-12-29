@@ -9,23 +9,23 @@ import Combine
 import Foundation
 
 class SearchViewModel: ObservableObject {
-    @Published private(set) var searchResults: [SearchResult] = []
-    private static let apiRequest = APIRequest()
+    @Published private(set) var SearchResponses: [SearchResponse] = []
+    private static let apiRequest = APISearchRequest()
     
     func search(searchText: String) {
         guard searchText != "" else {
-            setSearchResults([])
+            setSearchResponses([])
             return
         }
         guard let searchParameter: String = searchText.sanitized else { return }
-        SearchViewModel.apiRequest.fetchData(searchParameter) { [weak self] searchResults in
-            self?.setSearchResults(searchResults)
+        SearchViewModel.apiRequest.fetchData(searchParameter) { [weak self] SearchResponses in
+            self?.setSearchResponses(SearchResponses)
         }
     }
     
-    private func setSearchResults(_ searchResults: [SearchResult]) {
+    private func setSearchResponses(_ SearchResponses: [SearchResponse]) {
         DispatchQueue.main.async { [weak self] in
-            self?.searchResults = searchResults
+            self?.SearchResponses = SearchResponses
         }
     }
 }

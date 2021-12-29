@@ -7,17 +7,17 @@
 
 import Foundation
 
-struct APIResponse: Codable {
-    private let searchResults: [SearchResult]
+struct APISearchResponse: Codable {
+    private let searchResponses: [SearchResponse]
     private let totalResults: String
     private let response: String
     
-    var getSearchResults: [SearchResult] {
-        searchResults.unique
+    var getSearchResponses: [SearchResponse] {
+        searchResponses.unique
     }
     
     private enum CodingKeys: String, CodingKey {
-        case searchResults = "Search"
+        case searchResponses = "Search"
         case totalResults
         case response = "Response"
     }

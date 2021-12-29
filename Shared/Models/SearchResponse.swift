@@ -1,5 +1,5 @@
 //
-//  SearchResult.swift
+//  SearchResponse.swift
 //  ILikeToWatch
 //
 //  Created by Steph Ananth on 12/26/21.
@@ -8,7 +8,7 @@
 import Foundation
 import SwiftUI
 
-struct SearchResult: Codable {
+struct SearchResponse: Codable {
     private let title: String
     private let year: String
     private let imdbID: String
@@ -23,8 +23,8 @@ struct SearchResult: Codable {
         year
     }
     
-    var getPosterURL: URL? {
-        URL(string: poster)
+    var getImdbID: String {
+        imdbID
     }
     
     var getType: MediaType? {
@@ -33,6 +33,10 @@ struct SearchResult: Codable {
     
     var getTypeIcon: some View {
         getType?.icon
+    }
+    
+    var getPosterURL: URL? {
+        URL(string: poster)
     }
 
     private enum CodingKeys: String, CodingKey {
@@ -44,13 +48,13 @@ struct SearchResult: Codable {
     }
 }
 
-extension SearchResult: Equatable {
-    static func == (lhs: SearchResult, rhs: SearchResult) -> Bool {
+extension SearchResponse: Equatable {
+    static func == (lhs: SearchResponse, rhs: SearchResponse) -> Bool {
         return lhs.imdbID == rhs.imdbID
     }
 }
 
-extension SearchResult: Identifiable {
+extension SearchResponse: Identifiable {
     var id: Int {
         return imdbID.hashValue
     }

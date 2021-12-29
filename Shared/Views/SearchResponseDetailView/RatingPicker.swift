@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct RatingPicker: View {
-    private let detailView: SearchResultDetailView
+    private let detailView: SearchResponseDetailView
     
     var body: some View {
         HStack(alignment: .center) {
@@ -23,7 +23,7 @@ struct RatingPicker: View {
         }
     }
     
-    init(detailView: SearchResultDetailView) {
+    init(detailView: SearchResponseDetailView) {
         self.detailView = detailView
     }
 }
