@@ -8,28 +8,29 @@
 import Foundation
 
 struct APIDetailedResponse: Codable {
-    private let metascore: String
     private let title: String
-    private let awards: String
-    private let director: String
-    private let imdbRating: String
-    private let response: String
-    private let actors: String
     private let year: String
     private let plot: String
-    private let imdbVotes: String
     private let type: String
-    private let language: String
-    private let rated: String
     private let runtime: String
     private let poster: String
-    private let writer: String
-    private let country: String
-    private let ratings: [MovieRating]
     private let released: String
-    private let imdbID: String
-    private let totalSeasons: String
     private let genre: String
+    
+    enum CodingKeys: String, CodingKey {
+        case title = "Title"
+        case year = "Year"
+        case plot = "Plot"
+        case type = "Type"
+        case runtime = "Runtime"
+        case poster = "Poster"
+        case released = "Released"
+        case genre = "Genre"
+    }
+    
+    var getRuntime: Int? {
+        return Int(runtime.trimmingCharacters(in: .decimalDigits.inverted))
+    }
     
     var getReleaseDate: Date? {
         let formatter = DateFormatter()
@@ -37,36 +38,7 @@ struct APIDetailedResponse: Codable {
         return formatter.date(from: released)
     }
     
-    enum CodingKeys: String, CodingKey {
-        case metascore = "Metascore"
-        case title = "Title"
-        case awards = "Awards"
-        case director = "Director"
-        case imdbRating
-        case response = "Response"
-        case actors = "Actors"
-        case year = "Year"
-        case plot = "Plot"
-        case imdbVotes
-        case type = "Type"
-        case language = "Language"
-        case rated = "Rated"
-        case runtime = "Runtime"
-        case poster = "Poster"
-        case writer = "Writer"
-        case country = "Country"
-        case ratings = "Ratings"
-        case released = "Released"
-        case imdbID, totalSeasons
-        case genre = "Genre"
-    }
-}
-
-struct MovieRating: Codable {
-    let source, value: String
-    
-    enum CodingKeys: String, CodingKey {
-        case source = "Source"
-        case value = "Value"
+    var getGenres: [String] {
+        genre.components(separatedBy: ", ")
     }
 }

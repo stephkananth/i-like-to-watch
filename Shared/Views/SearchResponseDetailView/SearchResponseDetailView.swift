@@ -15,13 +15,13 @@ struct SearchResponseDetailView: View {
     @State private var watchDate: Date = Date()
     @State var season: String = ""
     @State var episode: String = ""
-    @State var image: Image? = nil
     
     private let searchResponse: SearchResponse
+    private let detailedRequest: APIDetailedRequest = APIDetailedRequest()
     
     var body: some View {
         VStack(alignment: .center) {
-            PosterView(detailView: self, posterURL: searchResponse.getPosterURL)
+            PosterView(posterURL: searchResponse.getPosterURL)
             TitleView(SearchResponse: searchResponse)
             PlatformPicker(detailView: self)
             RatingPicker(detailView: self)
@@ -32,9 +32,9 @@ struct SearchResponseDetailView: View {
             }
             
             Spacer()
-            Button("+ add to watch history +") {
-                APIDetailedRequest().fetchData(searchResponse.getImdbID) { detailedResponse in
-                    let watchItem: WatchItem = WatchItem(searchResponse: searchResponse, detailedResponse: detailedResponse, id: 0, poster: image, platform: platform, rating: rating, watchDate: watchDate, season: Int(season), episode: Int(episode))
+            Button("✨ add to watch history ✨") {
+                detailedRequest.fetchData(searchResponse.getImdbID) { detailedResponse in
+                    let watchItem: WatchItem = WatchItem(searchResponse: searchResponse, detailedResponse: detailedResponse, id: 0, poster: searchResponse.getPosterURL, platform: platform, rating: rating, watchDate: watchDate, season: Int(season), episode: Int(episode))
                     persistenceVM.saveItem(item: watchItem)
                 }
             }

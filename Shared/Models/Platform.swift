@@ -16,6 +16,17 @@ enum Platform: String, CaseIterable {
     case theater
     case other
     
+    var intValue: Int {
+        switch self {
+        case .netflix: return 0
+        case .hulu: return 1
+        case .disney: return 2
+        case .amazon: return 3
+        case .theater: return 4
+        case .other: return 5
+        }
+    }
+    
     private var abbreviation: String {
         switch self {
         case .netflix: return "N"

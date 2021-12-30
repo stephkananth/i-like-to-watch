@@ -15,7 +15,7 @@ enum Rating: String, CaseIterable {
     case four = "really liked it"
     case five = "it was amazing"
     
-    private var value: Int {
+    var intValue: Int {
         switch self {
         case .one: return 1
         case .two: return 2
@@ -80,5 +80,16 @@ enum Rating: String, CaseIterable {
         Circle()
             .fill(.blue)
             .frame(width: 10, height: 10, alignment: .center)
+    }
+    
+    init?(intValue: Int) {
+        switch intValue {
+        case 1: self = .one
+        case 2: self = .two
+        case 3: self = .three
+        case 4: self = .four
+        case 5: self = .five
+        default: return nil
+        }
     }
 }
