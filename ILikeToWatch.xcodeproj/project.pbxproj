@@ -71,6 +71,8 @@
 		97A97FCA277E2949005FE01A /* Printable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97A97FC8277E2949005FE01A /* Printable.swift */; };
 		97A97FCC277E2A97005FE01A /* APIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97A97FCB277E2A97005FE01A /* APIRequest.swift */; };
 		97A97FCD277E2A97005FE01A /* APIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97A97FCB277E2A97005FE01A /* APIRequest.swift */; };
+		97A97FD2277E4522005FE01A /* ItemRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97A97FD1277E4522005FE01A /* ItemRow.swift */; };
+		97A97FD3277E4522005FE01A /* ItemRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97A97FD1277E4522005FE01A /* ItemRow.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -130,6 +132,7 @@
 		97A97FC2277CFD84005FE01A /* APIDetailedResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIDetailedResponse.swift; sourceTree = "<group>"; };
 		97A97FC8277E2949005FE01A /* Printable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Printable.swift; sourceTree = "<group>"; };
 		97A97FCB277E2A97005FE01A /* APIRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRequest.swift; sourceTree = "<group>"; };
+		97A97FD1277E4522005FE01A /* ItemRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemRow.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -277,6 +280,7 @@
 			isa = PBXGroup;
 			children = (
 				974C623A2778EB1F008EACDC /* MainView.swift */,
+				97A97FD1277E4522005FE01A /* ItemRow.swift */,
 				97A97FAC277CD83E005FE01A /* SearchView */,
 				97A97FAB277CD814005FE01A /* SearchResponseDetailView */,
 			);
@@ -490,6 +494,7 @@
 				97A97FA0277A885D005FE01A /* HistoryViewModel.swift in Sources */,
 				97A97FA3277BC899005FE01A /* WatchItem.swift in Sources */,
 				97A97FAE277CD875005FE01A /* TitleView.swift in Sources */,
+				97A97FD2277E4522005FE01A /* ItemRow.swift in Sources */,
 				97A97FC3277CFD84005FE01A /* APIDetailedResponse.swift in Sources */,
 				97A97FC0277CFA27005FE01A /* APIDetailedRequest.swift in Sources */,
 			);
@@ -526,6 +531,7 @@
 				97A97FA1277A885D005FE01A /* HistoryViewModel.swift in Sources */,
 				97A97FA4277BC899005FE01A /* WatchItem.swift in Sources */,
 				97A97FAF277CD875005FE01A /* TitleView.swift in Sources */,
+				97A97FD3277E4522005FE01A /* ItemRow.swift in Sources */,
 				97A97FC4277CFD84005FE01A /* APIDetailedResponse.swift in Sources */,
 				97A97FC1277CFA27005FE01A /* APIDetailedRequest.swift in Sources */,
 			);

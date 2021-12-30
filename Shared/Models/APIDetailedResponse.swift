@@ -39,6 +39,6 @@ struct APIDetailedResponse: Codable {
     }
     
     var getGenres: [String] {
-        genre.components(separatedBy: ", ")
+        genre.lowercased().components(separatedBy: ", ")
     }
 }

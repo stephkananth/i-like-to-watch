@@ -17,9 +17,9 @@ enum MediaType: String {
     var intValue: Int {
         switch self {
         case .movie: return 0
-        case .series: return 0
-        case .game: return 0
-        case .episode: return 0
+        case .series: return 1
+        case .game: return 2
+        case .episode: return 3
         }
     }
     
@@ -39,5 +39,15 @@ enum MediaType: String {
             .padding()
             .background(.gray)
             .clipShape(Circle())
+    }
+    
+    init?(intValue: Int) {
+        switch intValue {
+        case 0: self = .movie
+        case 1: self = .series
+        case 2: self = .game
+        case 3: self = .episode
+        default: return nil
+        }
     }
 }

@@ -10,23 +10,18 @@ import Foundation
 import SwiftUI
 
 class WatchItem {
-    private let id: Int
-    private let imdbID: String
-    private let genres: [String]
-    private let posterURL: URL?
-    private let platform: Platform
-    private let rating: Rating
-    private let releaseDate: Date?
-    private let runtime: Int?
-    private let title: String
-    private let type: MediaType?
-    private let watchDate: Date
-    private let yearStart: Int?
-    private let yearEnd: Int?
-    
-    var getID: Int {
-        id
-    }
+    var imdbID: String = ""
+    var genres: [String] = []
+    var posterData: Data? = nil
+    var platform: Platform = .other
+    var rating: Rating = .three
+    var releaseDate: Date? = nil
+    var runtime: Int? = nil
+    var title: String = ""
+    var type: MediaType? = .movie
+    var watchDate: Date = Date()
+    var yearStart: Int? = nil
+    var yearEnd: Int? = nil
     
     var getImdbID: String {
         imdbID
@@ -37,9 +32,12 @@ class WatchItem {
     }
     
     var getPosterData: Data? {
-        guard let posterURL: URL = posterURL else { return nil }
-        guard let data: Data = try? Data(contentsOf: posterURL) else { return nil }
-        return UIImage(data: data)?.pngData()
+        posterData
+    }
+    
+    var getPoster: Image {
+        guard let posterData = posterData, let uiImage = UIImage(data: posterData) else { return Image(systemName: "sparkles.tv") }
+        return Image(uiImage: uiImage)
     }
     
     var getPlatformID: Int {
@@ -52,6 +50,10 @@ class WatchItem {
     
     var getReleaseDate: Date? {
         releaseDate
+    }
+    
+    var getRuntime: Int? {
+        runtime
     }
     
     var getTitle: String {
@@ -83,10 +85,11 @@ class WatchItem {
         }
     }
     
-    init(searchResponse: SearchResponse, detailedResponse: APIDetailedResponse, id: Int, poster: URL?, platform: Platform, rating: Rating, watchDate: Date, season: Int?, episode: Int?) {
-        self.id = id
+    init() { }
+    
+    init(searchResponse: SearchResponse, detailedResponse: APIDetailedResponse, poster: URL?, platform: Platform, rating: Rating, watchDate: Date, season: Int?, episode: Int?) {
         self.imdbID = searchResponse.getImdbID
-        self.posterURL = poster
+        self.posterData = poster?.imageData
         self.genres = detailedResponse.getGenres
         self.platform = platform
         self.rating = rating
@@ -111,5 +114,11 @@ class WatchItem {
         } else {
             self.yearEnd = nil
         }
+    }
+}
+
+extension WatchItem: Identifiable {
+    var id: Int {
+        imdbID.hashValue
     }
 }

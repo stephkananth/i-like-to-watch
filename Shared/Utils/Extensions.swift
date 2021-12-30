@@ -20,8 +20,23 @@ extension Array where Element: Equatable {
     }
 }
 
+extension Date {
+    var toString: String {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "MMMM d, YYYY"
+        return formatter.string(from: self)
+    }
+}
+
 extension String {
     var sanitized: String? {
         addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)
+    }
+}
+
+extension URL {
+    var imageData: Data? {
+        guard let data: Data = try? Data(contentsOf: self) else { return nil }
+        return UIImage(data: data)?.pngData()
     }
 }

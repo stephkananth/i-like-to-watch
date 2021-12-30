@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="19574" systemVersion="21D5025f" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="Item" representedClassName="Item" syncable="YES" codeGenerationType="class">
-        <attribute name="id" attributeType="Integer 16" usesScalarValueType="YES"/>
+        <attribute name="genres" optional="YES" attributeType="Transformable" customClassName="[NSString]"/>
         <attribute name="imdbID" attributeType="String"/>
         <attribute name="mediaTypeID" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="platformID" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
@@ -15,6 +15,6 @@
         <attribute name="yearStart" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
     </entity>
     <elements>
-        <element name="Item" positionX="-63" positionY="-18" width="128" height="14"/>
+        <element name="Item" positionX="-63" positionY="-18" width="128" height="223"/>
     </elements>
 </model>

@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct SearchResponseDetailView: View {
-    @ObservedObject var persistenceVM = PersistenceViewModel()
+    @Environment(\.presentationMode) var mode: Binding<PresentationMode>
+    var persistenceVM: PersistenceViewModel
     
     @State var platform: Platform = .netflix
     @State var rating: Rating = .three
@@ -33,9 +34,17 @@ struct SearchResponseDetailView: View {
             
             Spacer()
             Button("✨ add to watch history ✨") {
+                if searchResponse.getType == .series {
+                    guard season != "" && episode != "" else {
+                        return
+                    }
+                }
                 detailedRequest.fetchData(searchResponse.getImdbID) { detailedResponse in
-                    let watchItem: WatchItem = WatchItem(searchResponse: searchResponse, detailedResponse: detailedResponse, id: 0, poster: searchResponse.getPosterURL, platform: platform, rating: rating, watchDate: watchDate, season: Int(season), episode: Int(episode))
+                    let watchItem: WatchItem = WatchItem(searchResponse: searchResponse, detailedResponse: detailedResponse, poster: searchResponse.getPosterURL, platform: platform, rating: rating, watchDate: watchDate, season: Int(season), episode: Int(episode))
                     persistenceVM.saveItem(item: watchItem)
+                    DispatchQueue.main.async {
+                        self.mode.wrappedValue.dismiss()
+                    }
                 }
             }
             Spacer()
@@ -43,7 +52,8 @@ struct SearchResponseDetailView: View {
         .padding([.leading, .trailing])
     }
     
-    init(_ SearchResponse: SearchResponse) {
+    init(_ SearchResponse: SearchResponse, persistenceVM: PersistenceViewModel) {
         self.searchResponse = SearchResponse
+        self.persistenceVM = persistenceVM
     }
 }

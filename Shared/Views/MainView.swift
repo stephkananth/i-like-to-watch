@@ -9,20 +9,32 @@ import SwiftUI
 
 struct MainView: View {
     @Environment(\.managedObjectContext) private var viewContext
+    @ObservedObject var persistenceVM = PersistenceViewModel()
     
     var body: some View {
         NavigationView {
-            Text("MainView")
-                .navigationTitle("watch history")
-                .navigationBarItems(trailing: NavigationLink(destination: SearchView()) {
-                    Label("add item", systemImage: "plus")
-                })
+            List {
+                ForEach(persistenceVM.items) { item in
+                    ItemRow(item: item)
+                }
+                .onDelete(perform: deleteItems)
+            }
+            .onAppear(perform: persistenceVM.updateItems)
+            .navigationTitle("watch history")
+            .navigationBarItems(trailing: NavigationLink(destination: SearchView(persistenceVM: persistenceVM)) {
+                Label("add item", systemImage: "plus")
+            })
+            .toolbar {
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    EditButton()
+                }
+            }
         }
     }
-}
-
-struct MainView_Previews: PreviewProvider {
-    static var previews: some View {
-        MainView()
+    
+    private func deleteItems(offsets: IndexSet) {
+        withAnimation {
+            persistenceVM.deleteItem(at: offsets)
+        }
     }
 }

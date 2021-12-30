@@ -11,6 +11,7 @@ import CoreData
 struct SearchView: View {    
     @ObservedObject private var searchVM: SearchViewModel = SearchViewModel()
     @State private var searchField: String = ""
+    var persistenceVM: PersistenceViewModel
     
     var body: some View {
         VStack {
@@ -26,7 +27,7 @@ struct SearchView: View {
             }
             .padding(.bottom)
             List(searchVM.SearchResponses) { SearchResponse in
-                NavigationLink(destination: SearchResponseDetailView(SearchResponse)) {
+                NavigationLink(destination: SearchResponseDetailView(SearchResponse, persistenceVM: persistenceVM)) {
                     SearchResponseRow(SearchResponse)
                 }
             }

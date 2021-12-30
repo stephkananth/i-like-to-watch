@@ -44,7 +44,7 @@ enum Platform: String, CaseIterable {
         case .hulu: return .green
         case .disney: return .indigo
         case .amazon: return .yellow
-        case .theater: return .pink
+        case .theater: return .gray
         case .other: return .black
         }
     }
@@ -56,5 +56,17 @@ enum Platform: String, CaseIterable {
             .padding()
             .background(imageColor)
             .clipShape(Circle())
+    }
+    
+    init?(intValue: Int) {
+        switch intValue {
+        case 0: self = .netflix
+        case 1: self = .hulu
+        case 2: self = .disney
+        case 3: self = .amazon
+        case 4: self = .theater
+        case 5: self = .other
+        default: return nil
+        }
     }
 }
