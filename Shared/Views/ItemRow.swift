@@ -17,10 +17,11 @@ struct ItemRow: View {
                 .aspectRatio(contentMode: .fit)
                 .frame(maxWidth: ItemRow.width, maxHeight: .greatestFiniteMagnitude)
             VStack(alignment: .leading) {
-                Text(item.getTitle)
-                    .font(.headline)
-                Text(item.getWatchDate.toString)
+                Text(item.title)
                     .font(.subheadline)
+                Text(item.watchDate.toString)
+                    .font(.caption)
+                    .foregroundColor(.gray)
                 item.rating.image
             }
         }

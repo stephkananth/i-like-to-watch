@@ -15,7 +15,9 @@ struct MainView: View {
         NavigationView {
             List {
                 ForEach(persistenceVM.items) { item in
-                    ItemRow(item: item)
+                    NavigationLink(destination: ItemDetailView(item: item)) {
+                        ItemRow(item: item)
+                    }
                 }
                 .onDelete(perform: deleteItems)
             }

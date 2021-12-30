@@ -46,7 +46,7 @@ struct SearchResponseDetailView: View {
                         self.mode.wrappedValue.dismiss()
                     }
                 }
-            }
+            }.disabled(searchResponse.getType == .series && (season == "" || episode == ""))
             Spacer()
         }
         .padding([.leading, .trailing])

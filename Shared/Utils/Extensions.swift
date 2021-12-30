@@ -18,6 +18,33 @@ extension Array where Element: Equatable {
         }
         return result
     }
+    
+    var toString: String {
+        var result: String = ""
+        for element in self {
+            result += "\(element), "
+        }
+        for _ in 0..<2 {
+            result.removeLast()
+        }
+        return result
+    }
+}
+
+extension Int {
+    var duration: String {
+        if self < 60 {
+            return "\(self) minute\(self == 1 ? "" : "s")"
+        }
+        var suffix: String = ""
+        let minutes: Int = self % 60
+        if minutes == 0 {
+            suffix = ""
+        } else {
+            suffix = ", \(minutes) minute\(minutes == 1 ? "" : "s")"
+        }
+        return "\(self / 60) hour\(self / 60 == 1 ? "" : "s")\(suffix)"
+    }
 }
 
 extension Date {

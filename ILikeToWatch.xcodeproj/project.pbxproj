@@ -73,6 +73,8 @@
 		97A97FCD277E2A97005FE01A /* APIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97A97FCB277E2A97005FE01A /* APIRequest.swift */; };
 		97A97FD2277E4522005FE01A /* ItemRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97A97FD1277E4522005FE01A /* ItemRow.swift */; };
 		97A97FD3277E4522005FE01A /* ItemRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97A97FD1277E4522005FE01A /* ItemRow.swift */; };
+		97A9801E277E51A9005FE01A /* ItemDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97A9801D277E51A9005FE01A /* ItemDetailView.swift */; };
+		97A9801F277E51A9005FE01A /* ItemDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97A9801D277E51A9005FE01A /* ItemDetailView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -133,6 +135,7 @@
 		97A97FC8277E2949005FE01A /* Printable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Printable.swift; sourceTree = "<group>"; };
 		97A97FCB277E2A97005FE01A /* APIRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRequest.swift; sourceTree = "<group>"; };
 		97A97FD1277E4522005FE01A /* ItemRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemRow.swift; sourceTree = "<group>"; };
+		97A9801D277E51A9005FE01A /* ItemDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDetailView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -281,6 +284,7 @@
 			children = (
 				974C623A2778EB1F008EACDC /* MainView.swift */,
 				97A97FD1277E4522005FE01A /* ItemRow.swift */,
+				97A9801D277E51A9005FE01A /* ItemDetailView.swift */,
 				97A97FAC277CD83E005FE01A /* SearchView */,
 				97A97FAB277CD814005FE01A /* SearchResponseDetailView */,
 			);
@@ -470,6 +474,7 @@
 				97A97FB7277CDC97005FE01A /* SeriesRow.swift in Sources */,
 				97A97FBD277CE9C3005FE01A /* PersistenceViewModel.swift in Sources */,
 				974C62AE27791496008EACDC /* Platform.swift in Sources */,
+				97A9801E277E51A9005FE01A /* ItemDetailView.swift in Sources */,
 				97A97FCC277E2A97005FE01A /* APIRequest.swift in Sources */,
 				97A97FA9277CD6FD005FE01A /* Constants.swift in Sources */,
 				974C62332778D8D4008EACDC /* SearchResponse.swift in Sources */,
@@ -507,6 +512,7 @@
 				97A97FB8277CDC97005FE01A /* SeriesRow.swift in Sources */,
 				97A97FBE277CE9C3005FE01A /* PersistenceViewModel.swift in Sources */,
 				974C62AF27791496008EACDC /* Platform.swift in Sources */,
+				97A9801F277E51A9005FE01A /* ItemDetailView.swift in Sources */,
 				97A97FCD277E2A97005FE01A /* APIRequest.swift in Sources */,
 				97A97FAA277CD6FD005FE01A /* Constants.swift in Sources */,
 				974C62342778D8D4008EACDC /* SearchResponse.swift in Sources */,

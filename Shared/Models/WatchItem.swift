@@ -23,18 +23,6 @@ class WatchItem {
     var yearStart: Int? = nil
     var yearEnd: Int? = nil
     
-    var getImdbID: String {
-        imdbID
-    }
-    
-    var getGenres: [String] {
-        genres
-    }
-    
-    var getPosterData: Data? {
-        posterData
-    }
-    
     var getPoster: Image {
         guard let posterData = posterData, let uiImage = UIImage(data: posterData) else { return Image(systemName: "sparkles.tv") }
         return Image(uiImage: uiImage)
@@ -48,32 +36,8 @@ class WatchItem {
         rating.intValue
     }
     
-    var getReleaseDate: Date? {
-        releaseDate
-    }
-    
-    var getRuntime: Int? {
-        runtime
-    }
-    
-    var getTitle: String {
-        title
-    }
-    
     var getMediaTypeID: Int? {
         type?.intValue
-    }
-    
-    var getWatchDate: Date {
-        watchDate
-    }
-    
-    var getYearStart: Int? {
-        yearStart
-    }
-    
-    var getYearEnd: Int? {
-        yearEnd
     }
     
     var getYears: String  {

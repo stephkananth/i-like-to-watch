@@ -18,22 +18,22 @@ class PersistenceViewModel: ObservableObject {
         let context: NSManagedObjectContext = PersistenceController.shared.container.viewContext
         guard let entity: NSEntityDescription = NSEntityDescription.entity(forEntityName: "Item", in: context) else { return }
         let newItem = NSManagedObject(entity: entity, insertInto: context)
-        newItem.setValue(item.getImdbID, forKey: "imdbID")
-        newItem.setValue(item.getGenres as [NSString], forKey: "genres")
+        newItem.setValue(item.imdbID, forKey: "imdbID")
+        newItem.setValue(item.genres as [NSString], forKey: "genres")
         newItem.setValue(item.getMediaTypeID, forKey: "mediaTypeID")
         newItem.setValue(item.getPlatformID, forKey: "platformID")
-        newItem.setValue(item.getPosterData, forKey: "posterData")
+        newItem.setValue(item.posterData, forKey: "posterData")
         newItem.setValue(item.getRatingID, forKey: "ratingID")
-        newItem.setValue(item.getReleaseDate, forKey: "releaseDate")
-        newItem.setValue(item.getRuntime, forKey: "runtime")
-        newItem.setValue(item.getTitle, forKey: "title")
-        newItem.setValue(item.getWatchDate, forKey: "watchDate")
-        newItem.setValue(item.getYearEnd, forKey: "yearEnd")
-        newItem.setValue(item.getYearStart, forKey: "yearStart")
+        newItem.setValue(item.releaseDate, forKey: "releaseDate")
+        newItem.setValue(item.runtime, forKey: "runtime")
+        newItem.setValue(item.title, forKey: "title")
+        newItem.setValue(item.watchDate, forKey: "watchDate")
+        newItem.setValue(item.yearEnd, forKey: "yearEnd")
+        newItem.setValue(item.yearStart, forKey: "yearStart")
         do {
             try context.save()
         } catch {
-            print("ERROR: Failed to save item to watch history with title: \(item.getTitle)")
+            print("ERROR: Failed to save item to watch history with title: \(item.title)")
         }
     }
     
@@ -83,9 +83,9 @@ class PersistenceViewModel: ObservableObject {
                 let result: [NSFetchRequestResult] = try context.fetch(request)
                 guard let managedObjects: [NSManagedObject] = result as? [NSManagedObject] else { return }
                 for managedObject in managedObjects {
-                    if item.getImdbID == (managedObject.value(forKey: "imdbID") as? String) &&
-                        item.getTitle == (managedObject.value(forKey: "title") as? String) &&
-                        item.getWatchDate == (managedObject.value(forKey: "watchDate") as? Date) {
+                    if item.imdbID == (managedObject.value(forKey: "imdbID") as? String) &&
+                        item.title == (managedObject.value(forKey: "title") as? String) &&
+                        item.watchDate == (managedObject.value(forKey: "watchDate") as? Date) {
                         context.delete(managedObject)
                         try context.save()
                     }

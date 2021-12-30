@@ -18,6 +18,9 @@ struct SearchView: View {
             HStack {
                 TextField("search", text: $searchField)
                     .padding(.leading)
+                    .onSubmit {
+                        self.searchVM.search(searchText: self.searchField)
+                    }
                 Button {
                     self.searchVM.search(searchText: self.searchField)
                 } label: {

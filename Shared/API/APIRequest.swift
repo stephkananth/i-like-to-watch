@@ -21,7 +21,7 @@ extension APIRequest {
         ]
         let request: NSMutableURLRequest = NSMutableURLRequest(url: url)
         request.cachePolicy = .returnCacheDataElseLoad
-        request.timeoutInterval = 1
+        request.timeoutInterval = 10
         request.httpMethod = "GET"
         request.allHTTPHeaderFields = headers
         return request
